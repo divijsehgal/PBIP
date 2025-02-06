@@ -1,0 +1,25 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["SQLServer","SQLDatabase","Employees","Employees (2)","Employees (3)"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.139.1678.0 (24.12)+2a034ab280bddf891eb7bb9ebfe6996f9c3a3196
+
+ref table 'Employees (3)'
+ref table DateTableTemplate_ee9de818-4115-47fe-aba7-05471dd68500
+ref table LocalDateTable_b030d2a3-a4a0-4f08-adba-79f000b8eb1a
+ref table Employees
+ref table LocalDateTable_becdecb6-9fbd-4a1d-b705-7f525c5c1005
+ref table 'Employees (2)'
+ref table LocalDateTable_7f4dc3fc-e839-4494-a0e0-ebd486c7322c
+ref table NumParameter
+
+ref cultureInfo en-IN
+

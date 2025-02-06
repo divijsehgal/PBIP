@@ -1,0 +1,63 @@
+table 'Employees (3)'
+	lineageTag: 252e5ba3-f063-4ad5-9337-52105c29fa70
+
+	column EmployeeID
+		dataType: int64
+		formatString: 0
+		lineageTag: c5bf5918-90f1-4f86-95fe-0042300dfd9a
+		summarizeBy: count
+		sourceColumn: EmployeeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: 925445d8-9351-44a1-a141-9691f8a96798
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: 9e66a1fb-c1bd-40c0-a1e1-e753207b5ddf
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: e0a339c4-83ba-40d4-acae-2e5e57f9775e
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateOfJoining
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 39062b08-f033-47b9-8296-47ce6bda193e
+		summarizeBy: none
+		sourceColumn: DateOfJoining
+
+		variation Variation
+			isDefault
+			relationship: c22a3cd5-396c-4ce7-9843-668ffbf0ce81
+			defaultHierarchy: LocalDateTable_b030d2a3-a4a0-4f08-adba-79f000b8eb1a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'Employees (3)' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("pbisqlserver77.database.windows.net", "pbisqldb77"),
+				    dbo_Employees = Source{[Schema="dbo",Item="Employees"]}[Data]
+				in
+				    dbo_Employees
+
+	annotation PBI_ResultType = Table
+

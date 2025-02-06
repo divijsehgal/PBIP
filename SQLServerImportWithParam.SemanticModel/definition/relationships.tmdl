@@ -1,0 +1,15 @@
+relationship c22a3cd5-396c-4ce7-9843-668ffbf0ce81
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Employees (3)'.DateOfJoining
+	toColumn: LocalDateTable_b030d2a3-a4a0-4f08-adba-79f000b8eb1a.Date
+
+relationship 817d42f3-5163-4833-884b-00feb7a46a58
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Employees.DateOfJoining
+	toColumn: LocalDateTable_becdecb6-9fbd-4a1d-b705-7f525c5c1005.Date
+
+relationship 3921f6b2-f71c-4f42-8cec-4cd8c2305a2f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Employees (2)'.DateOfJoining
+	toColumn: LocalDateTable_7f4dc3fc-e839-4494-a0e0-ebd486c7322c.Date
+

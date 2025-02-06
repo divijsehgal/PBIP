@@ -1,0 +1,63 @@
+table Employees
+	lineageTag: 70f6074e-59f1-4111-8e0e-eb414af44066
+
+	column EmployeeID
+		dataType: int64
+		formatString: 0
+		lineageTag: f97d6db3-34f8-4e92-8ec6-b6e0584602fe
+		summarizeBy: count
+		sourceColumn: EmployeeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: 410ea147-00de-4f2a-bd3f-98782be059d6
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: e4367be8-1672-4396-885a-c1632bb769a1
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: 82678d55-f49b-4d9b-a4c4-4a8266f0d837
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateOfJoining
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e935ac7f-da0d-46df-82fd-181a6112af05
+		summarizeBy: none
+		sourceColumn: DateOfJoining
+
+		variation Variation
+			isDefault
+			relationship: 817d42f3-5163-4833-884b-00feb7a46a58
+			defaultHierarchy: LocalDateTable_becdecb6-9fbd-4a1d-b705-7f525c5c1005.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Employees = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(SQLServer, SQLDatabase),
+				    dbo_Employees = Source{[Schema="dbo",Item="Employees"]}[Data]
+				in
+				    dbo_Employees
+
+	annotation PBI_ResultType = Table
+

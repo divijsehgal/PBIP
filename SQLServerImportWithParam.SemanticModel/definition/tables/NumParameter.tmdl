@@ -1,0 +1,26 @@
+table NumParameter
+	lineageTag: a7c93f65-4191-448b-8ddc-d90f4c24f3b3
+
+	measure 'NumParameter Value' = SELECTEDVALUE('NumParameter'[NumParameter])
+		formatString: 0
+		lineageTag: 150585c1-fb6f-452e-b707-b2cb4f5ef5fd
+
+	column NumParameter
+		formatString: 0
+		lineageTag: 757eec60-f94d-4b35-9acd-7162252e8388
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition NumParameter = calculated
+		mode: import
+		source = GENERATESERIES(0, 20, 1)
+
+	annotation PBI_Id = 3a9e4a3f885b40039064f2bed9365b3a
+

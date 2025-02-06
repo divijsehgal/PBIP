@@ -1,0 +1,10 @@
+expression SQLServer = "pbisqlserver77.database.windows.net" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: 33d9cbad-7996-44ff-840a-7a9f06d9ff2f
+
+	annotation PBI_ResultType = Text
+
+expression SQLDatabase = "pbisqldb77" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: 4c01640f-9510-4151-a5ce-8b2f2417d0ca
+
+	annotation PBI_ResultType = Text
+
